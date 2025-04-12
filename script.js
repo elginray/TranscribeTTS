@@ -82,14 +82,17 @@ function speakText(text) {
 
     // Show some indicator that audio is loading (optional)
     // statusDiv.textContent = "Generating speech...";
+    // ... (optional cleanup code) ...
+    // Change this line:
+    // fetch('http://127.0.0.1:5000/tts', { ... })
+    // to:
 
-    // fetch('/tts', {
-    fetch('http://127.0.0.1:5000/tts', { // <-- Use the correct Flask server address and port (e.g., 5000)
+    fetch('/api/tts', { // <-- Use the relative path for Vercel
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: text }), // Send text in JSON body
+        body: JSON.stringify({ text: text }),
     })
     .then(response => {
         if (!response.ok) {
@@ -133,8 +136,9 @@ function speakText(text) {
     })
     .catch(error => {
         console.error('Error fetching or playing TTS audio:', error);
-        alert('Failed to get or play speech. Is the Python server running?');
-        // statusDiv.textContent = "Failed to generate speech."; // Update status
+        // Update the error message slightly for deployed context
+        alert('Failed to get or play speech. Is the API deployed correctly?');
+        // statusDiv.textContent = "Failed to generate speech.";
     });
 }
 
