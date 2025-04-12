@@ -81,7 +81,7 @@ function speakText(text) {
     }
 
     // Show some indicator that audio is loading (optional)
-    statusDiv.textContent = "Generating speech...";
+    // statusDiv.textContent = "Generating speech...";
 
     // fetch('/tts', {
     fetch('https://transcribetts.onrender.com/tts', { // <-- Use the correct Flask server address and port (e.g., 5000)
@@ -172,7 +172,7 @@ if (SpeechRecognition) {
     recognition.onend = () => {
         statusDiv.textContent = ""; // Clear status
         listenButton.disabled = false; // Re-enable button
-        listenButton.textContent = "🎤 Listen to Other Person";
+        listenButton.textContent = "🎤 Listen";
     };
 
 } else {
@@ -249,7 +249,7 @@ listenButton.addEventListener('click', () => {
             statusDiv.textContent = "Could not start listening. Please try again.";
              // Ensure button is reset if start fails immediately
             listenButton.disabled = false;
-            listenButton.textContent = "🎤 Listen to Other Person";
+            listenButton.textContent = "🎤 Listen";
         }
     } else {
         alert("Speech Recognition is not supported in this browser.");
