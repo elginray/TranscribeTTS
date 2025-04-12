@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-gunicorn 'api.app:app' --config gunicorn_config.py
+gunicorn 'app:app' --config gunicorn_config.py

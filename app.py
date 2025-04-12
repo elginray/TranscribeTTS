@@ -41,8 +41,6 @@ def serve_index(path):
     return send_from_directory(app.static_folder, 'index.html')
 
 
-
-
 if __name__ == '__main__':
     # # Make sure host is '0.0.0.0' or '127.0.0.1' and port is 5000
     # app.run(host='127.0.0.1', port=5000, debug=True)
