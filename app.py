@@ -2,6 +2,7 @@ from flask import Flask, request, send_file, Response, jsonify
 from flask_cors import CORS  # <-- Import CORS
 from gtts import gTTS
 import io
+import os
 
 app = Flask(__name__)
 CORS(app) # <-- Add this line to enable CORS for all origins by default
