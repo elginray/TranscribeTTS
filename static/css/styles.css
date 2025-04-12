@@ -2,56 +2,45 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height instead of height */
     margin: 0;
     background-color: #f4f4f8;
+    font-size: 16px; /* Base font size */
 }
 
 /* --- Presets Section Styles --- */
-
-/* Add text-align: center to the content area */
 #presetsContent {
     width: 100%;
     padding-top: 10px;
-    text-align: center; /* Center inline-block children */
-
-    /* --- Keep existing transition/hidden styles --- */
+    text-align: center; 
     max-height: 500px;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, padding-top 0.3s ease-in-out, margin-top 0.3s ease-in-out, visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
 }
 
-/* --- Style the individual preset buttons --- */
 .preset-button {
-    /* --- Size & Spacing --- */
-    padding: 10px 18px; /* Increase padding for bigger size */
-    font-size: 15px;    /* Slightly larger font */
-    margin: 6px 4px;    /* Adjust margin */
-
-    /* --- Shape (Squircle) --- */
-    border-radius: 20px; /* <<< THIS CREATES THE SQUIRCLE LOOK */
-
-    /* --- Colors & Basic Styling (Keep or adjust) --- */
-    background-color: #4CAF50; /* Green */
+    padding: 12px 20px; /* Increased padding */
+    font-size: 16px;    /* Base font size */
+    margin: 8px 6px;    /* Increased margin */
+    border-radius: 20px;
+    background-color: #4CAF50;
     border: none;
     color: white;
     text-align: center;
     text-decoration: none;
-    display: inline-block; /* Important for text-align: center to work */
+    display: inline-block;
     cursor: pointer;
-    transition: background-color 0.2s ease; /* Smooth hover */
+    transition: background-color 0.2s ease;
 }
 
 .preset-button:hover {
     background-color: #45a049;
 }
 
-
-/* --- Keep other styles (#presetsSection, #togglePresetsButton, #customPresetArea, etc.) --- */
 #presetsSection {
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -59,9 +48,9 @@ body {
 }
 
 #togglePresetsButton {
-    width: 100px;
-    height: 50px;
-    border-radius: 25px;
+    width: 120px; /* Wider button */
+    height: 60px; /* Taller button */
+    border-radius: 30px;
     background-color: #0880AE;
     border: none;
     color: white;
@@ -69,22 +58,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10px;
-    font-size: 14px;
+    padding: 0 15px;
+    font-size: 16px; /* Increased font size */
     font-weight: bold;
     text-align: center;
     line-height: 1.2;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-
 #togglePresetsButton:hover {
-    background-color: #066a8f; /* Slightly darker shade on hover */
+    background-color: #066a8f;
 }
 
 #togglePresetsButton:active {
-    transform: scale(0.98); /* Slightly smaller scale effect for rectangle */
+    transform: scale(0.98);
 }
 
 #presetsContent.presets-hidden {
@@ -97,44 +85,30 @@ body {
     transition: max-height 0.3s ease-in-out, padding-top 0.3s ease-in-out, margin-top 0.3s ease-in-out, visibility 0s linear 0.3s, opacity 0.3s ease-in-out;
 }
 
-
 #customPresetInput {
-    flex-grow: 1; /* Input takes available space */
-    padding: 6px;
+    flex-grow: 1;
+    padding: 10px; /* Increased padding */
     border: 1px solid #ccc;
     border-radius: 3px;
+    font-size: 16px; /* Base font size */
 }
 
 #addPresetButton {
-    padding: 6px 10px;
+    padding: 10px 15px; /* Increased padding */
     cursor: pointer;
-    background-color: #007bff; /* Blue */
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 3px;
+    font-size: 16px; /* Base font size */
 }
 
 #addPresetButton:hover {
     background-color: #0056b3;
 }
 
-/* Optional: Adjust chatbox margin if needed */
-#chatbox {
-    /* margin-top: 10px; */ /* Adjust if presets section adds too much space */
-}
-
-/* --- End Presets Section Styles --- */
-
-/* --- Keep your existing styles below --- */
-body {
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
-
+/* Remove duplicate body style */
+/* body { ... } - Already defined above */
 
 #chatbox {
     flex-grow: 1;
@@ -144,60 +118,59 @@ body {
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-width: 1200px; /* Control maximum width on large screens */
-    margin: 0 auto; /* Center the chat container */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .message-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    max-width: 80%; /* Increase for better readability on mobile */
-    width: fit-content; /* Keep bubbles only as wide as content needs */
+    max-width: 85%; /* Increased for better readability */
+    width: fit-content;
 }
 
 .message {
-    padding: 12px 16px;
+    padding: 14px 18px; /* Increased padding */
     border-radius: 18px;
     word-wrap: break-word;
-    line-height: 1.4;
+    line-height: 1.5; /* Improved line height */
     font-size: 16px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Incoming Messages (Transcribed Speech) - Gray */
 .message-container-incoming {
     align-self: flex-start;
-    margin-right: auto; /* Ensure it takes only needed width */
+    margin-right: auto;
 }
+
 .message-incoming {
     background-color: #e5e5ea;
     color: #000;
     border-bottom-left-radius: 5px;
 }
 
-/* Outgoing Messages (Your Text) - Blue */
 .message-container-outgoing {
     align-self: flex-end;
-    margin-left: auto; /* Ensure it takes only needed width */
+    margin-left: auto;
 }
+
 .message-outgoing {
     background-color: #007aff;
     color: #fff;
     border-bottom-right-radius: 5px;
 }
 
-/* TTS Button Styling */
 .tts-button {
     background-color: transparent;
     border: none;
     color: #666;
     border-radius: 10px;
-    padding: 2px 8px;
-    font-size: 0.75em;
+    padding: 5px 10px; /* Increased padding */
+    font-size: 14px; /* Increased from 0.75em */
     cursor: pointer;
-    margin-top: 4px;
+    margin-top: 5px;
     margin-right: 5px;
     align-self: flex-end;
     transition: color 0.2s ease;
@@ -207,22 +180,21 @@ body {
     color: #007aff;
 }
 
-/* Input Area Styling */
 #inputArea {
     display: flex;
-    padding: 12px 15px;
+    padding: 15px 20px; /* Increased padding */
     border-top: 1px solid #d1d1d6;
     background-color: #f9f9f9;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Match chatbox max-width */
-    margin: 0 auto; /* Center the input area */
-    box-sizing: border-box; /* Include padding in width calculation */
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 #userInput {
     flex-grow: 1;
-    padding: 12px 16px;
+    padding: 14px 18px; /* Increased padding */
     border: 1px solid #d1d1d6;
     border-radius: 20px;
     font-size: 16px;
@@ -236,18 +208,16 @@ body {
     box-shadow: 0 0 0 1px #007aff40;
 }
 
-/* General Button Styling */
 #inputArea button {
-    padding: 10px 16px;
+    padding: 14px 20px; /* Increased padding */
     border: none;
-    border-radius: 20px; /* Match input field roundness */
+    border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
     transition: background-color 0.2s ease;
     font-size: 16px;
 }
 
-/* Send Button */
 #sendButton {
     background-color: #007aff;
     color: white;
@@ -258,7 +228,6 @@ body {
     background-color: #005ecb;
 }
 
-/* Listen Button */
 #listenButton {
     background-color: #5856d6;
     color: white;
@@ -274,149 +243,158 @@ body {
     cursor: not-allowed;
 }
 
-/* Status Area */
 #status {
     font-style: italic;
     color: #555;
-    font-size: 0.9em;
+    font-size: 14px; /* Changed from 0.9em */
     text-align: center;
-    padding: 5px;
-    height: 20px;
+    padding: 8px; /* Increased from 5px */
+    height: auto; /* Changed from fixed height */
+    min-height: 20px; /* Min-height instead of fixed height */
     background-color: #f4f4f8;
     width: 100%;
-    max-width: 1200px; /* Match other elements */
+    max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-
 /* --- Responsive Adjustments --- */
-
+/* For tablets and smaller screens */
 @media (max-width: 768px) {
-    /* Using calc() for font sizes: base size + scaling factor based on viewport width */
-    /* Adjust the base (rem) and scaling factor (vw) as needed */
-
+    html {
+        font-size: 18px; /* Increased base font size for mobile */
+    }
+    
     body {
-        min-height: 100vh;
+        font-size: 18px; /* Increased base font size */
     }
-
+    
     #chatbox {
-        padding: 1rem; /* Keep padding reasonable, maybe adjust slightly */
-        gap: 0.8rem;
+        padding: 15px;
     }
-
+    
     .message-container {
         max-width: 90%;
     }
-
+    
     .message {
-        /* Example: Base 15px + 0.5% of viewport width */
-        font-size: calc(0.9375rem + 0.5vw);
-        /* Adjust padding if needed, maybe use calc too or keep rem */
-        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
-        line-height: 1.5;
+        font-size: 18px; /* Larger font on mobile */
+        padding: 15px 20px; /* Larger padding */
     }
-
+    
     .tts-button {
-        /* Smaller elements might stick to rem or smaller calc values */
-        font-size: calc(0.8rem + 0.2vw);
-        padding: 0.3rem 0.6rem;
-        min-height: 1.75rem;
-        min-width: 2.5rem;
-        margin-top: 0.4rem;
+        font-size: 16px;
+        padding: 6px 12px;
+        min-height: 30px;
     }
-
+    
     #inputArea {
-        padding: 0.8rem 1rem;
-        flex-wrap: nowrap;
+        padding: 15px;
     }
-
+    
     #userInput {
-        /* Example: Base 15px + 0.6% of viewport width */
-        font-size: calc(0.9375rem + 0.6vw);
-        padding: calc(0.8rem + 0.2vw) calc(1rem + 0.2vw);
-        min-height: 3rem; /* Keep min-height in rem for tap target consistency */
-        box-sizing: border-box;
+        font-size: 18px;
+        padding: 15px 20px;
+        min-height: 50px; /* Taller input field */
     }
-
+    
     #inputArea button {
-        /* Example: Base 14px + 0.5% of viewport width */
-        font-size: calc(0.875rem + 0.5vw);
-        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
-        min-height: 3rem; /* Keep min-height in rem */
-        box-sizing: border-box;
+        font-size: 18px;
+        padding: 15px 20px;
+        min-height: 50px; /* Taller buttons */
     }
-
-    /* --- Presets Adjustments --- */
+    
     #togglePresetsButton {
-        font-size: calc(0.85rem + 0.4vw);
-        padding: 0.8rem 1rem;
-        min-height: 2.75rem;
-        width: auto;
-        max-width: 9.5rem;
+        font-size: 18px;
+        padding: 12px 15px;
+        min-height: 60px;
+        width: 150px;
     }
-
+    
     .preset-button {
-        font-size: calc(0.9rem + 0.5vw);
-        padding: calc(0.7rem + 0.2vw) calc(1.1rem + 0.3vw);
-        margin: 0.5rem 0.3rem;
+        font-size: 18px;
+        padding: 15px 22px;
+        margin: 8px 6px;
     }
-
+    
     #customPresetInput {
-        font-size: calc(0.9rem + 0.4vw);
-        padding: 0.6rem;
+        font-size: 18px;
+        padding: 12px;
     }
-
+    
     #addPresetButton {
-        font-size: calc(0.9rem + 0.4vw);
-        padding: 0.6rem 0.9rem;
+        font-size: 18px;
+        padding: 12px 18px;
     }
-
+    
     #status {
-        font-size: calc(0.8rem + 0.2vw);
-        padding: 0.5rem;
+        font-size: 16px;
+        padding: 8px;
     }
 }
 
-/* For smaller phones - Refine or inherit from 768px */
+/* For mobile phones */
 @media (max-width: 480px) {
-    /* The calc() function will naturally adjust sizes down */
-    /* You might only need minor tweaks here, if any */
-
-    /* Example: Maybe slightly reduce the base size in calc() if needed */
+    html {
+        font-size: 20px; /* Even larger for small screens */
+    }
+    
+    body {
+        font-size: 20px;
+    }
+    
     .message {
-        font-size: calc(0.9rem + 0.5vw); /* Slightly smaller base than 768px */
-        padding: calc(0.6rem + 0.2vw) calc(0.8rem + 0.2vw);
+        font-size: 20px; /* Even larger text */
+        padding: 16px 22px;
     }
-
+    
     #userInput {
-        font-size: calc(0.9rem + 0.6vw);
-        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
-        min-height: 2.75rem;
+        font-size: 20px;
+        padding: 16px 22px;
+        min-height: 54px;
     }
-
-     #inputArea button {
-        font-size: calc(0.85rem + 0.5vw);
-        padding: calc(0.6rem + 0.2vw) calc(0.8rem + 0.2vw);
-        min-height: 2.75rem;
+    
+    #inputArea button {
+        font-size: 18px;
+        padding: 16px 20px;
+        min-height: 54px;
     }
-
+    
     .preset-button {
-        font-size: calc(0.85rem + 0.5vw);
-        padding: calc(0.6rem + 0.2vw) calc(1rem + 0.3vw);
+        font-size: 20px;
+        padding: 16px 24px;
+        margin: 10px 8px;
+        border-radius: 24px; /* Larger radius */
     }
-
-     #togglePresetsButton {
-        font-size: calc(0.8rem + 0.4vw);
-        padding: 0.6rem 0.9rem;
-        min-height: 2.5rem;
+    
+    #togglePresetsButton {
+        font-size: 18px;
+        padding: 14px 18px;
+        min-height: 64px;
+        width: 160px;
+    }
+    
+    /* Make input buttons more prominent on mobile */
+    #sendButton, #listenButton {
+        min-width: 80px; /* Wider buttons */
+    }
+    
+    /* Ensure touch targets are at least 44px */
+    .tts-button {
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 18px;
     }
 }
 
-/* Remove or comment out the old 375px block if the 480px block covers it well */
-/*
-@media (max-width: 375px) {
-    // Styles previously here might be redundant now
+/* For very small screens */
+@media (max-width: 320px) {
+    #inputArea {
+        padding: 10px;
+    }
+    
+    #inputArea button {
+        min-width: 70px;
+        font-size: 16px;
+    }
 }
-*/
-
