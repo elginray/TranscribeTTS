@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Conversation Helper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- START: Presets Section -->
+    <div id="presetsSection">
+        <button id="togglePresetsButton">Presets</button>
+        <div id="presetsContent" class="presets-hidden">
+            <!-- Predefined Presets -->
+            <button class="preset-button">Hello!</button>
+            <button class="preset-button">How are you?</button>
+            <button class="preset-button">Nice weather today.</button>
+            <!-- Add more predefined presets here -->
+
+            <hr> <!-- Separator -->
+
+            <!-- Custom Preset Area -->
+            <div id="customPresetArea">
+                <input type="text" id="customPresetInput" placeholder="Enter custom preset text">
+                <button id="addPresetButton">Add Preset</button>
+            </div>
+        </div>
+    </div>
+    <!-- END: Presets Section -->    
+
+
+    <div id="chatbox">
+        <!-- Chat messages will appear here -->
+    </div>
+
+    <div id="inputArea">
+        <input type="text" id="userInput" placeholder="Type your reply...">
+        <button id="sendButton">📨 Send</button>
+         <!-- Add the Listen button -->
+        <button id="listenButton">🎤 Listen</button>
+    </div>
+    <!-- Optional: Add a status indicator -->
+    <div id="status" style="text-align: center; padding: 5px; height: 20px;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
