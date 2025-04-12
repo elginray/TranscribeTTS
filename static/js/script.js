@@ -84,7 +84,7 @@ function speakText(text) {
     // statusDiv.textContent = "Generating speech...";
 
     // fetch('/tts', {
-    fetch('http://127.0.0.1:5000/tts', { // <-- Use the correct Flask server address and port (e.g., 5000)
+    fetch('https://transcribetts.onrender.com/', { // <-- Use the correct Flask server address and port (e.g., 5000)
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
