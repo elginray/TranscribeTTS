@@ -292,17 +292,16 @@ body {
 /* --- Responsive Adjustments --- */
 
 @media (max-width: 768px) {
-    /* Optional: Set a slightly larger base font size for mobile if desired */
-    /* This would make 1rem = 17px (or whatever you set) */
-    /* html { font-size: 17px; } */
+    /* Using calc() for font sizes: base size + scaling factor based on viewport width */
+    /* Adjust the base (rem) and scaling factor (vw) as needed */
 
     body {
         min-height: 100vh;
     }
 
     #chatbox {
-        padding: 1rem; /* Approx 16px */
-        gap: 0.8rem;   /* Approx 13px */
+        padding: 1rem; /* Keep padding reasonable, maybe adjust slightly */
+        gap: 0.8rem;
     }
 
     .message-container {
@@ -310,107 +309,106 @@ body {
     }
 
     .message {
-        font-size: 1.0625rem; /* Approx 17px */
-        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        /* Example: Base 15px + 0.5% of viewport width */
+        font-size: calc(0.9375rem + 0.5vw);
+        /* Adjust padding if needed, maybe use calc too or keep rem */
+        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
         line-height: 1.5;
     }
 
-    /* Make TTS button easier to tap */
     .tts-button {
-        font-size: 0.9rem;    /* Approx 14px */
-        padding: 0.3rem 0.6rem; /* Approx 5px 10px */
-        min-height: 1.75rem; /* Approx 28px */
-        min-width: 2.5rem;  /* Approx 40px */
-        margin-top: 0.4rem; /* Approx 6px */
+        /* Smaller elements might stick to rem or smaller calc values */
+        font-size: calc(0.8rem + 0.2vw);
+        padding: 0.3rem 0.6rem;
+        min-height: 1.75rem;
+        min-width: 2.5rem;
+        margin-top: 0.4rem;
     }
 
     #inputArea {
-        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        padding: 0.8rem 1rem;
         flex-wrap: nowrap;
     }
 
     #userInput {
-        padding: 0.9rem 1.1rem; /* Approx 14px 18px */
-        font-size: 1.0625rem; /* Approx 17px */
-        min-height: 3rem;     /* Approx 48px */
+        /* Example: Base 15px + 0.6% of viewport width */
+        font-size: calc(0.9375rem + 0.6vw);
+        padding: calc(0.8rem + 0.2vw) calc(1rem + 0.2vw);
+        min-height: 3rem; /* Keep min-height in rem for tap target consistency */
         box-sizing: border-box;
     }
 
-    /* Style ALL buttons in input area */
     #inputArea button {
-        padding: 0.8rem 1rem; /* Approx 13px 16px */
-        font-size: 1rem;      /* Approx 16px */
-        min-height: 3rem;     /* Approx 48px */
+        /* Example: Base 14px + 0.5% of viewport width */
+        font-size: calc(0.875rem + 0.5vw);
+        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
+        min-height: 3rem; /* Keep min-height in rem */
         box-sizing: border-box;
     }
 
     /* --- Presets Adjustments --- */
     #togglePresetsButton {
-        padding: 0.8rem 1rem; /* Approx 13px 16px */
-        font-size: 0.95rem;   /* Approx 15px */
-        min-height: 2.75rem; /* Approx 44px */
+        font-size: calc(0.85rem + 0.4vw);
+        padding: 0.8rem 1rem;
+        min-height: 2.75rem;
         width: auto;
-        max-width: 9.5rem; /* Approx 152px */
+        max-width: 9.5rem;
     }
 
     .preset-button {
-        padding: 0.8rem 1.25rem; /* Approx 13px 20px */
-        font-size: 1rem;        /* Approx 16px */
-        margin: 0.5rem 0.3rem;  /* Approx 8px 5px */
+        font-size: calc(0.9rem + 0.5vw);
+        padding: calc(0.7rem + 0.2vw) calc(1.1rem + 0.3vw);
+        margin: 0.5rem 0.3rem;
     }
 
     #customPresetInput {
-        padding: 0.6rem;      /* Approx 10px */
-        font-size: 1rem;      /* Approx 16px */
+        font-size: calc(0.9rem + 0.4vw);
+        padding: 0.6rem;
     }
 
     #addPresetButton {
-        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
-        font-size: 1rem;      /* Approx 16px */
+        font-size: calc(0.9rem + 0.4vw);
+        padding: 0.6rem 0.9rem;
     }
 
     #status {
-        font-size: 0.9rem; /* Approx 14px */
-        padding: 0.5rem;   /* Approx 8px */
+        font-size: calc(0.8rem + 0.2vw);
+        padding: 0.5rem;
     }
 }
 
 /* For smaller phones - Refine or inherit from 768px */
 @media (max-width: 480px) {
-    /* Adjustments using rem, potentially slightly smaller than 768px if needed */
-    /* Many styles might inherit well from the 768px block */
+    /* The calc() function will naturally adjust sizes down */
+    /* You might only need minor tweaks here, if any */
 
-    #chatbox {
-        padding: 0.8rem; /* Approx 13px */
-    }
-
+    /* Example: Maybe slightly reduce the base size in calc() if needed */
     .message {
-        font-size: 1rem;      /* Approx 16px */
-        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
+        font-size: calc(0.9rem + 0.5vw); /* Slightly smaller base than 768px */
+        padding: calc(0.6rem + 0.2vw) calc(0.8rem + 0.2vw);
     }
 
     #userInput {
-        padding: 0.8rem 1rem; /* Approx 13px 16px */
-        font-size: 1rem;      /* Approx 16px */
-        min-height: 2.75rem; /* Approx 44px */
+        font-size: calc(0.9rem + 0.6vw);
+        padding: calc(0.7rem + 0.2vw) calc(0.9rem + 0.2vw);
+        min-height: 2.75rem;
     }
 
      #inputArea button {
-        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
-        font-size: 0.95rem;   /* Approx 15px */
-        min-height: 2.75rem; /* Approx 44px */
+        font-size: calc(0.85rem + 0.5vw);
+        padding: calc(0.6rem + 0.2vw) calc(0.8rem + 0.2vw);
+        min-height: 2.75rem;
     }
 
-    /* Keep other button sizes from 768px or adjust slightly */
     .preset-button {
-        padding: 0.6rem 1.1rem; /* Approx 10px 18px */
-        font-size: 0.95rem;   /* Approx 15px */
+        font-size: calc(0.85rem + 0.5vw);
+        padding: calc(0.6rem + 0.2vw) calc(1rem + 0.3vw);
     }
 
      #togglePresetsButton {
-        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
-        font-size: 0.9rem;    /* Approx 14px */
-        min-height: 2.5rem;  /* Approx 40px */
+        font-size: calc(0.8rem + 0.4vw);
+        padding: 0.6rem 0.9rem;
+        min-height: 2.5rem;
     }
 }
 
