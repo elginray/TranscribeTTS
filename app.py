@@ -9,6 +9,7 @@ CORS(app) # <-- Add this line to enable CORS for all origins by default
 
 # --- Your existing @app.route('/tts') function ---
 @app.route('/tts', methods=['POST'])
+
 def text_to_speech():
     try:
         data = request.get_json()
@@ -31,9 +32,19 @@ def text_to_speech():
     except Exception as e:
         print(f"Error during TTS generation: {e}")
         return jsonify({"error": "Failed to generate speech"}), 500
+        pass
 # --- End of your existing function ---
+
+# Serve the index.html file
+@app.route('/', defaults={'path': ''})
+def serve_index(path):
+    return send_from_directory(app.static_folder, 'index.html')
+
+
 
 
 if __name__ == '__main__':
-    # Make sure host is '0.0.0.0' or '127.0.0.1' and port is 5000
-    app.run(host='127.0.0.1', port=5000, debug=True)
+    # # Make sure host is '0.0.0.0' or '127.0.0.1' and port is 5000
+    # app.run(host='127.0.0.1', port=5000, debug=True)
+    port = int(os.environ.get('PORT'),5000)
+    app.run(host='0.0.0.0',port=port)
