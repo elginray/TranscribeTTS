@@ -292,124 +292,125 @@ body {
 /* --- Responsive Adjustments --- */
 
 @media (max-width: 768px) {
+    /* Optional: Set a slightly larger base font size for mobile if desired */
+    /* This would make 1rem = 17px (or whatever you set) */
+    /* html { font-size: 17px; } */
+
     body {
-        /* Ensure body takes full height on mobile */
         min-height: 100vh;
-        /* Consider slightly larger base font if needed, affects em units */
-        /* font-size: 17px; */ /* Optional: Uncomment to increase base font */
     }
 
     #chatbox {
-        padding: 15px; /* Keep or increase padding */
-        gap: 12px;     /* Slightly increase gap between messages */
+        padding: 1rem; /* Approx 16px */
+        gap: 0.8rem;   /* Approx 13px */
     }
 
     .message-container {
-        max-width: 90%; /* Allow bubbles to be wider */
+        max-width: 90%;
     }
 
     .message {
-        font-size: 17px;    /* Increase font size slightly */
-        padding: 12px 16px; /* Increase padding */
-        line-height: 1.5;   /* Improve readability */
+        font-size: 1.0625rem; /* Approx 17px */
+        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        line-height: 1.5;
     }
 
     /* Make TTS button easier to tap */
     .tts-button {
-        font-size: 14px; /* Use px for more control on mobile */
-        padding: 5px 10px; /* Increase padding */
-        min-height: 28px; /* Ensure minimum tap height */
-        min-width: 40px;  /* Ensure minimum tap width */
-        margin-top: 6px;
+        font-size: 0.9rem;    /* Approx 14px */
+        padding: 0.3rem 0.6rem; /* Approx 5px 10px */
+        min-height: 1.75rem; /* Approx 28px */
+        min-width: 2.5rem;  /* Approx 40px */
+        margin-top: 0.4rem; /* Approx 6px */
     }
 
     #inputArea {
-        padding: 12px 15px; /* Increase padding */
-        flex-wrap: nowrap; /* Try to keep input and buttons on one line */
+        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        flex-wrap: nowrap;
     }
 
     #userInput {
-        padding: 14px 18px; /* Increase padding */
-        font-size: 17px;    /* Match message font size */
-        min-height: 48px;   /* Ensure decent height */
-        box-sizing: border-box; /* Include padding in height */
+        padding: 0.9rem 1.1rem; /* Approx 14px 18px */
+        font-size: 1.0625rem; /* Approx 17px */
+        min-height: 3rem;     /* Approx 48px */
+        box-sizing: border-box;
     }
 
     /* Style ALL buttons in input area */
     #inputArea button {
-        padding: 12px 16px; /* Increase padding */
-        font-size: 16px;    /* Slightly larger font */
-        min-height: 48px;   /* Match input height */
-        box-sizing: border-box; /* Include padding in height */
+        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        font-size: 1rem;      /* Approx 16px */
+        min-height: 3rem;     /* Approx 48px */
+        box-sizing: border-box;
     }
 
     /* --- Presets Adjustments --- */
     #togglePresetsButton {
-        padding: 12px 15px; /* Increase padding */
-        font-size: 15px;    /* Increase font size */
-        min-height: 44px;   /* Ensure decent tap height */
-        width: auto;        /* Allow width to adjust to content */
-        max-width: 150px;   /* Prevent it getting too wide */
+        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        font-size: 0.95rem;   /* Approx 15px */
+        min-height: 2.75rem; /* Approx 44px */
+        width: auto;
+        max-width: 9.5rem; /* Approx 152px */
     }
 
     .preset-button {
-        padding: 12px 20px; /* Increase padding */
-        font-size: 16px;    /* Increase font size */
-        margin: 8px 5px;    /* Adjust spacing */
+        padding: 0.8rem 1.25rem; /* Approx 13px 20px */
+        font-size: 1rem;        /* Approx 16px */
+        margin: 0.5rem 0.3rem;  /* Approx 8px 5px */
     }
 
     #customPresetInput {
-        padding: 10px;      /* Increase padding */
-        font-size: 16px;    /* Increase font size */
+        padding: 0.6rem;      /* Approx 10px */
+        font-size: 1rem;      /* Approx 16px */
     }
 
     #addPresetButton {
-        padding: 10px 14px; /* Increase padding */
-        font-size: 16px;    /* Increase font size */
+        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
+        font-size: 1rem;      /* Approx 16px */
     }
 
     #status {
-        font-size: 14px; /* Slightly larger status text */
-        padding: 8px;
+        font-size: 0.9rem; /* Approx 14px */
+        padding: 0.5rem;   /* Approx 8px */
     }
 }
 
 /* For smaller phones - Refine or inherit from 768px */
-@media (max-width: 480px) { /* Adjusted breakpoint slightly */
-    /* You might not need many overrides here if 768px styles work well */
-    /* Example: Slightly reduce padding if needed on very narrow screens */
+@media (max-width: 480px) {
+    /* Adjustments using rem, potentially slightly smaller than 768px if needed */
+    /* Many styles might inherit well from the 768px block */
 
     #chatbox {
-        padding: 12px;
+        padding: 0.8rem; /* Approx 13px */
     }
 
     .message {
-        font-size: 16px; /* Can slightly reduce if 17px feels too big */
-        padding: 10px 14px;
+        font-size: 1rem;      /* Approx 16px */
+        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
     }
 
     #userInput {
-        padding: 12px 16px;
-        font-size: 16px;
-        min-height: 44px;
+        padding: 0.8rem 1rem; /* Approx 13px 16px */
+        font-size: 1rem;      /* Approx 16px */
+        min-height: 2.75rem; /* Approx 44px */
     }
 
      #inputArea button {
-        padding: 10px 14px;
-        font-size: 15px;
-        min-height: 44px;
+        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
+        font-size: 0.95rem;   /* Approx 15px */
+        min-height: 2.75rem; /* Approx 44px */
     }
 
     /* Keep other button sizes from 768px or adjust slightly */
     .preset-button {
-        padding: 10px 18px;
-        font-size: 15px;
+        padding: 0.6rem 1.1rem; /* Approx 10px 18px */
+        font-size: 0.95rem;   /* Approx 15px */
     }
 
      #togglePresetsButton {
-        padding: 10px 14px;
-        font-size: 14px;
-        min-height: 40px;
+        padding: 0.6rem 0.9rem; /* Approx 10px 14px */
+        font-size: 0.9rem;    /* Approx 14px */
+        min-height: 2.5rem;  /* Approx 40px */
     }
 }
 
