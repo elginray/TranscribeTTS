@@ -81,10 +81,10 @@ function speakText(text) {
     }
 
     // Show some indicator that audio is loading (optional)
-    // statusDiv.textContent = "Generating speech...";
+    statusDiv.textContent = "Generating speech...";
 
     // fetch('/tts', {
-    fetch('https://transcribetts.onrender.com/', { // <-- Use the correct Flask server address and port (e.g., 5000)
+    fetch('https://transcribetts.onrender.com/tts', { // <-- Use the correct Flask server address and port (e.g., 5000)
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
