@@ -10,18 +10,21 @@ CORS(app)
 
 def log_resource_usage():
     process = psutil.Process(os.getpid())
-    
-    # Memory stats
-    mem_info = process.memory_info()
-    rss_mb = mem_info.rss / 1024 ** 2  # Resident Set Size: actual memory used
+    rss_mb = process.memory_info().rss / 1024 ** 2
     total_mem_mb = psutil.virtual_memory().total / 1024 ** 2
     mem_percent = (rss_mb / total_mem_mb) * 100
-
-    # CPU usage
-    cpu_percent = process.cpu_percent(interval=0.1)  # quick sample window
+    cpu_percent = process.cpu_percent(interval=0.1)
+    cpu_times = process.cpu_times()
+    num_cores = psutil.cpu_count(logical=True)
+    core_equivalent = (cpu_percent / 100) * num_cores
+    freq = psutil.cpu_freq()
 
     print(f"[Resource Usage] Memory: {rss_mb:.2f} MB / {total_mem_mb:.2f} MB "
-          f"({mem_percent:.2f}%), CPU: {cpu_percent:.2f}%")
+          f"({mem_percent:.2f}%), CPU: {cpu_percent:.2f}% (~{core_equivalent:.2f} cores)")
+    print(f"[CPU Time] User: {cpu_times.user:.2f}s, System: {cpu_times.system:.2f}s")
+    if freq:
+        print(f"[CPU Info] Frequency: {freq.current:.2f} MHz "
+              f"(min: {freq.min:.2f}, max: {freq.max:.2f})")
 
 @app.route('/tts', methods=['POST'])
 def text_to_speech():
