@@ -8,10 +8,20 @@ import psutil  # <--- Add this
 app = Flask(__name__, static_folder='static')
 CORS(app)
 
-def log_memory_usage():  # <--- Add this helper
+def log_resource_usage():
     process = psutil.Process(os.getpid())
-    mem_mb = process.memory_info().rss / 1024 ** 2
-    print(f"[Memory Usage] {mem_mb:.2f} MB")
+    
+    # Memory stats
+    mem_info = process.memory_info()
+    rss_mb = mem_info.rss / 1024 ** 2  # Resident Set Size: actual memory used
+    total_mem_mb = psutil.virtual_memory().total / 1024 ** 2
+    mem_percent = (rss_mb / total_mem_mb) * 100
+
+    # CPU usage
+    cpu_percent = process.cpu_percent(interval=0.1)  # quick sample window
+
+    print(f"[Resource Usage] Memory: {rss_mb:.2f} MB / {total_mem_mb:.2f} MB "
+          f"({mem_percent:.2f}%), CPU: {cpu_percent:.2f}%")
 
 @app.route('/tts', methods=['POST'])
 def text_to_speech():
@@ -24,9 +34,9 @@ def text_to_speech():
         tts = gTTS(text=text_to_speak, lang='en')
         tts.write_to_fp(mp3_fp)
         mp3_fp.seek(0)
-        
-        # 👇 Log memory usage after generating the audio
-        log_memory_usage()
+
+        # Log memory and CPU usage after the processing
+        log_resource_usage()
 
         return send_file(
             mp3_fp,
